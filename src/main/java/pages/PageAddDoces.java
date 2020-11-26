@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import core.BasePage;
 
 public class PageAddDoces extends BasePage {
-	
+
 	public void AcessaTelaInicial() {
 		getDriver().get("https://shopcart-challenge.4all.com/");
 	}
@@ -19,13 +19,27 @@ public class PageAddDoces extends BasePage {
 	public void selecionarDoces() {
 		clicar(By.id("category-1"));
 	}
-	
+
+	public void selecionarBebidas() {
+		clicar(By.id("category-0"));
+	}
+
 	public void selecionarTodos() {
 		clicar(By.id("category-all"));
 	}
 
+	public void addTodosProdutos(int qntdProd) {
+		for (int i = 0; i < qntdProd; i++) {
+			clicar("add-product-" + i + "-btn");
+		}
+	}
+
 	public void addBrigadeiroCarrinho() {
-		clicar(By.id("add-product-4-btn"));		
+		clicar(By.id("add-product-4-btn"));
+	}
+
+	public void addRisoles() {
+		clicar(By.id("add-product-3-btn"));
 	}
 
 	public void addAlfajorCarrinho() {
@@ -36,22 +50,36 @@ public class PageAddDoces extends BasePage {
 		clicar(By.id("cart-products-qtd"));
 	}
 
-	public void addMaisBrigadeiros(int qntd) {
+	public void aumentarQntdBrigadeiros(int qntd) {
 		for (int i = 0; i < qntd; i++)
 			clicar(By.xpath("//div[@id='add-product-4-qtd']/span"));
 	}
-		
+	
+	public void aumentarQntdRisoles(int qntd) {
+		for (int i = 0; i < qntd; i++)
+			clicar(By.xpath("//div[@id='add-product-3-qtd']/span"));
+	}
+	
+	public void diminuirQntdRisoles(int qntd) {
+		for (int i = 0; i < qntd; i++)
+			clicar(By.xpath("//div[@id='remove-product-3-qtd']/span"));
+	}
+
 	public void finalizarCompra() {
 		clicar(By.id("finish-checkout-button"));
 	}
 
 	public String obterMensagemFinal() {
-		return obterMensagem(By.xpath("//h2[contains(., 'Pedido realizado com sucesso')]"));
+		return obterMensagem(By.xpath("//h2[contains(., 'Pedido realizado com sucesso!')]"));
 	}
 	
+	public String obterMensagemValorotal() {
+		return obterMensagem("price-total-checkout");
+	}
+
 	public void clicarBtnFechar() {
-		 clicar(By.xpath("//button[contains(., 'Fechar')]"));
-		
+		clicar(By.xpath("//button[contains(., 'Fechar')]"));
+
 	}
 
 }
