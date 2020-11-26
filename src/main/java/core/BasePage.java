@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 import static core.DriverFactory.getDriver;
 
 public class BasePage {
-
+	
+	
 	public void clicar(By by) {
 		getDriver().findElement(by).click();
 	}

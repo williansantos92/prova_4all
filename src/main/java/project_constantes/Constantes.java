@@ -1,6 +1,6 @@
-package project_constants;
+package project_constantes;
 
-public class Constants {
+public class Constantes {
 	public static final String URL = "https://shopcart-challenge.4all.com/";
 
 }

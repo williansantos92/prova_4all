@@ -12,6 +12,8 @@ public class DriverFactory {
 	}
 
 	public static WebDriver getDriver() {
+		System.setProperty("webdriver.chrome.driver",
+				"D:\\Users\\willian.santos\\eclipse-workspace\\chromedriver_win32\\chromedriver.exe");
 		if (driver == null) {
 			switch (Propriedades.browser) {
 			case FIREFOX:
