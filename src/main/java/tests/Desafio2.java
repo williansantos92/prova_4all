@@ -4,16 +4,16 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import core.BaseTest;
 import core.DriverFactory;
 import pages.PageAddDoces;
 
 
-public class Desafio2 {
+public class Desafio2 extends BaseTest{
 	PageAddDoces pageAddDoces = new PageAddDoces();
 	DriverFactory driver;
 	@Test
 	public void desafio2() throws InterruptedException {
-		pageAddDoces.AcessaTelaInicial();
 		pageAddDoces.expandirCategorias();
 		pageAddDoces.selecionarBebidas();
 		pageAddDoces.addCocaCarrinho();
