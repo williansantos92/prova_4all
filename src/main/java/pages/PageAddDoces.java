@@ -3,13 +3,18 @@ package pages;
 import static core.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import core.BasePage;
+import core.Propriedades;
+import project_constantes.Constantes;
 
 public class PageAddDoces extends BasePage {
 
 	public void AcessaTelaInicial() {
-		getDriver().get("https://shopcart-challenge.4all.com/");
+		getDriver().get(Constantes.URL);
 	}
 
 	public void expandirCategorias() {
@@ -28,22 +33,28 @@ public class PageAddDoces extends BasePage {
 		clicar(By.id("category-all"));
 	}
 
-	public void addTodosProdutos(int qntdProd) {
-		for (int i = 0; i < qntdProd; i++) {
-			clicar("add-product-" + i + "-btn");
-		}
-	}
-
 	public void addBrigadeiroCarrinho() {
 		clicar(By.id("add-product-4-btn"));
 	}
 
 	public void addRisoles() {
-		clicar(By.id("add-product-3-btn"));
+		clicar("add-product-3-btn");
 	}
 
 	public void addAlfajorCarrinho() {
 		clicar(By.id("add-product-5-btn"));
+	}
+
+	public void addCocaCarrinho() {
+		clicar(By.id("add-product-0-btn"));
+	}
+
+	public void addFantaUvaCarrinho() {
+		clicar(By.id("add-product-1-btn"));
+	}
+
+	public void addAAguaMineralSemGasCarrinho() {
+		clicar(By.id("add-product-2-btn"));
 	}
 
 	public void abrirCarrinho() {
@@ -54,12 +65,12 @@ public class PageAddDoces extends BasePage {
 		for (int i = 0; i < qntd; i++)
 			clicar(By.xpath("//div[@id='add-product-4-qtd']/span"));
 	}
-	
+
 	public void aumentarQntdRisoles(int qntd) {
 		for (int i = 0; i < qntd; i++)
 			clicar(By.xpath("//div[@id='add-product-3-qtd']/span"));
 	}
-	
+
 	public void diminuirQntdRisoles(int qntd) {
 		for (int i = 0; i < qntd; i++)
 			clicar(By.xpath("//div[@id='remove-product-3-qtd']/span"));
@@ -69,10 +80,10 @@ public class PageAddDoces extends BasePage {
 		clicar(By.id("finish-checkout-button"));
 	}
 
-	public String obterMensagemFinal() {
+	public String obterMensagemPedidoRealizado() {
 		return obterMensagem(By.xpath("//h2[contains(., 'Pedido realizado com sucesso!')]"));
 	}
-	
+
 	public String obterMensagemValorotal() {
 		return obterMensagem("price-total-checkout");
 	}
@@ -82,4 +93,5 @@ public class PageAddDoces extends BasePage {
 
 	}
 
+	
 }
