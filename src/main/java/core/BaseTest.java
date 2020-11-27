@@ -19,32 +19,27 @@ import pages.PageAddDoces;
 public class BaseTest {
 
 	private PageAddDoces pageAddDoces = new PageAddDoces();
-	
+
 	@Rule
 	public TestName testName = new TestName();
 
 	@Before
 	public void inicializa() {
-		 {
-		pageAddDoces.AcessaTelaInicial();
+		{
+			pageAddDoces.AcessaTelaInicial();
 		}
 	}
-	
-	
 
 	@After
 	public void finaliza() throws IOException {
 		TakesScreenshot ss = (TakesScreenshot) getDriver();
 		File arquivo = ss.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(arquivo, new File("target" + File.separator + "screenshot" +
-				File.separator + testName.getMethodName() + ".jpg"));
+		FileUtils.copyFile(arquivo, new File(
+				"target" + File.separator + "screenshot" + File.separator + testName.getMethodName() + ".jpg"));
 		if (Propriedades.FECHAR_BROWSER) {
 			killDriver();
 		}
 
 	}
-	
-	
-	}
 
-
+}

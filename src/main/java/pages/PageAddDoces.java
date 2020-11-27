@@ -1,17 +1,23 @@
 package pages;
 
+
 import static core.DriverFactory.getDriver;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.junit.rules.TestName;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import core.BasePage;
-import core.Propriedades;
-import project_constantes.Constantes;
+import project_constants.Constantes;
 
 public class PageAddDoces extends BasePage {
+
+	public TestName testName = new TestName();
 
 	public void AcessaTelaInicial() {
 		getDriver().get(Constantes.URL);
@@ -92,6 +98,5 @@ public class PageAddDoces extends BasePage {
 		clicar(By.xpath("//button[contains(., 'Fechar')]"));
 
 	}
-
 	
 }
