@@ -1,5 +1,5 @@
 
-Projeto teste criado para testar algumas funcionalidades de uma prova técnica.
+Projeto teste Java Maven utilizando o Selenium Webdriver, criado para testar algumas funcionalidades do site - https://shopcart-challenge.4all.com/.
 
 O projeto foi divido em:
 * core
